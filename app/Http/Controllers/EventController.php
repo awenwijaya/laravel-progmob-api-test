@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\event;
 
 class EventController extends Controller
 {
@@ -14,15 +15,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        $data = \App\Models\event::all();
-        if(count($data)>0){
-            $res['message'] = "SUCCESS";
-            $res['values'] = $data;
-            return response($res);
-        }else {
-            $res['message'] = "EMPTY";
-            return response($res);
-        }
+        $data = event::all();
+        return response()->json([
+            'message' => 'BERHASIL',
+            'result' => $data,
+        ]);
     }
 
     /**

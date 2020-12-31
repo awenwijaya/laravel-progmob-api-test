@@ -17,7 +17,7 @@ class RequestPenggunaController extends Controller
         $data = \App\Models\Request::all();
         if(count($data)>0){
             $res['message'] = "SUCCESS";
-            $res['values'] = $data;
+            $res['result'] = $data;
             return response($res);
         }else {
             $res['message'] = "EMPTY";
