@@ -15,14 +15,10 @@ class RequestPenggunaController extends Controller
     public function index()
     {
         $data = \App\Models\Request::all();
-        if(count($data)>0){
-            $res['message'] = "SUCCESS";
-            $res['result'] = $data;
-            return response($res);
-        }else {
-            $res['message'] = "EMPTY";
-            return response($res);
-        }
+        return response()->json([
+            'message' => 'BERHASIL',
+            'result' => $data,
+        ]);
     }
 
     /**
@@ -49,6 +45,7 @@ class RequestPenggunaController extends Controller
         $keterangan = $request->input('keterangan');
         $nama_pengguna = $request->input('nama_pengguna');
         $alamat = $request->input('alamat');
+        $id_pengguna = $request->input('id_pengguna');
         $data = new \App\Models\Request;
         $data->nama_acara_request = $nama_acara_request;
         $data->tanggal = $tanggal;
@@ -122,9 +119,10 @@ class RequestPenggunaController extends Controller
         $data->alamat = $alamat;
         $data->keterangan = $keterangan;
         $data->nama_pengguna = $nama_pengguna;
+        $data->id_pengguna = $id_pengguna;
         if($data->save()){
             return response()->json([
-                'message' => 'Data berhasil ditambahkan!',
+                'message' => 'Data berhasil diperbaharui!',
                 'data' => $data,
             ]);
             return response($res);
