@@ -26,7 +26,7 @@ Route::middleware('auth:api')->group(function () {
 });
 
 Route::get('event', 'App\Http\Controllers\EventController@index');
-Route::get('event/{id}', 'App\Http\Controllers\EventController@show');
+Route::post('event-show', 'App\Http\Controllers\EventController@show');
 Route::post('event/store', 'App\Http\Controllers\EventController@store');
 Route::post('event/update', 'App\Http\Controllers\EventController@update');
 Route::post('event/delete', 'App\Http\Controllers\EventController@destroy');
