@@ -72,17 +72,14 @@ class RequestPenggunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        $id = $request->input('id');
         $data = \App\Models\Request::where('id',$id)->get();
-        if(count($data)>0){
-            $res['message'] = "SUKSES";
-            $res['values'] = $data;
-            return response($res);
-        } else{
-            $res['message'] = "GAGAL";
-            return response($res);
-        }
+        return response()->json([
+            'message' => 'BERHASIL',
+            'result' => $data,
+        ]);
     }
 
     /**
