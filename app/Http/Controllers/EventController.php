@@ -143,4 +143,32 @@ class EventController extends Controller
             return response($res);
         }
     }
+
+    public function approve(Request $request)
+    {
+        $nama_acara = $request->input('nama_acara');
+        $tanggal_acara = $request->input('tanggal_acara');
+        $tempat_acara = $request->input('tempat_acara');
+        $alamat = $request->input('alamat');
+        $keterangan = $request->input('keterangan');
+        $photo = $request->input('photo');
+        $data = new \App\Models\event;
+        $data->nama_acara = $nama_acara;
+        $data->tanggal_acara = $tanggal_acara;
+        $data->tempat_acara = $tempat_acara;
+        $data->alamat = $alamat;
+        $data->keterangan = $keterangan;
+        $data->photo = $photo;
+        if($data->save()){
+            return response()->json([
+                'message' => 'Data berhasil ditambahkan!',
+                'data' => $data,
+            ]);
+            return response($res);
+        }else{
+            return response()->json([
+                'message' => 'Gagal',
+            ]);
+        }
+    }
 }

@@ -30,9 +30,10 @@ Route::post('event-show', 'App\Http\Controllers\EventController@show');
 Route::post('event/store', 'App\Http\Controllers\EventController@store');
 Route::post('event/update', 'App\Http\Controllers\EventController@update');
 Route::post('event/delete', 'App\Http\Controllers\EventController@destroy');
+Route::post('approve', 'App\Http\Controllers\EventController@approve');
 
 Route::get('request', 'App\Http\Controllers\RequestPenggunaController@index');
-Route::get('request/{id}', 'App\Http\Controllers\RequestPenggunaController@show');
+Route::post('request-show', 'App\Http\Controllers\RequestPenggunaController@show');
 Route::post('request/store', 'App\Http\Controllers\RequestPenggunaController@store');
 Route::post('request/update', 'App\Http\Controllers\RequestPenggunaController@update');
 Route::post('request/delete', 'App\Http\Controllers\RequestPenggunaController@destroy');
